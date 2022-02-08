@@ -1,0 +1,5 @@
+Gain maps for Pilatus 2M CdTe detector 
+
+2022-1:
+Amorphous scatterer used is a glass marble, 3x3 median filter applied to reduce salt and pepper noise
+Data collected at three positions, 1s x 10 exposures per frame, 10 frames per position
