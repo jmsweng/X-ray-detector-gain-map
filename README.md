@@ -1,5 +1,7 @@
 # X-ray-detector-gain-map
-Calculated gain maps for area detectors at APS Sector 11
+Code to calculate x-ray detector gain maps at an arbitrary beam energy using measurements of an amorphous scatterer.
+May be used to correct for non-uniformity in detector response at energies where it is not possible collect a flat field.
+May also be used to quickly measure a gain map to monitor and correct for detector degradation from exposure to radiation.
 
 # Documentation is a work in progress
 
