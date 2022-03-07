@@ -1,5 +1,6 @@
 # X-ray-detector-gain-map
-
+Code is provided in the form of Jupyter Notebooks, installation instructions for Jupyter are found [here](https://jupyter.org/install), though it is already included in the default install configuration of [Anaconda Python](https://www.anaconda.com/products/individual) which is the recommended Python install for this code.
+Code is written for Python 3 (Python 3.9.7 was used to run the code to generate example images).
 # Documentation is currently a work in progress
 
 Code to calculate a gain map for an x-ray area detector at an arbitrary beam energy using measurements of an amorphous scatterer.
