@@ -109,6 +109,55 @@ Script will take a few seconds to run
 
 Folder should now contain a new folder named 'maps' containing .tif files
 
+# Usage of gain map calculation script
+Place 'Gain map calculation.ipynb' in a directory containing measurements of amorphous scatterer and standards at each position as shown below.
+Measurements taken at Position 1 should be placed in a directory named 'Pos 1', Position 2 in a directory named 'Pos 2', and so on. Positions do not need to be in any particular order. Maps directory exported from GSAS-II in previous step should be in a directory named 'Standard/maps/'. Position numbers should match between amorphous scatterer and calibration measurements. Amorphous scatterer measurements are expected to be .tif files.
+Different directories may be used if the script is changed to correspond to the file locations if desired. 
+
+![gain map calculation directory](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%20directory.png)
+
+Open the jupyter notebook 'Gain map calculation.ipynb' and run the first cell by clicking in it and hitting [Shift] + [Enter]. This imports the python libraries used by this script.
+
+![Gain map calculation, import libraries](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20import%20libraries.PNG)
+
+Check to make sure the directories in the next cell correspond to the locations of the amorphous scattering measurements and then hit [Shift] + [Enter] to run the cell. This may take a few moments depending on the number of measurements taken, as they are all imported and averaged for each position.
+
+![Gain map calculation, directories](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20import%20files.png)
+
+Click inside the next cell containing function definitions and hit [Shift] + [Enter] to run cell in order to initialize functions. Only the beginning of the cell is pictured below.
+
+![Gain map calculation, initialize functions](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20initialize%20functions.png)
+
+Click inside the next cell and hit [Shift] + [Enter] to calculate the radial average (actually the median) of the averaged patterns of the amorphous scatterer. The bins parameter may be changed if desired. Radial averages will be plotted. This may take a few moments. An error may appear due to complaining about an All-NaN slice due to how dead pixels are handled, this may be safely ignored. In the radial averages, select a region that is reasonably flat towards the high 2θ values that is in all of the radial averages. A linear fit will be perfored to this section to extrapolate high 2θ values that are not in all the 1D diffraction patterns. In the example below the region from 2θ = 8 to 2θ = 9.5 is selected.
+
+![Gain map calculation, radial average](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20radial%20averages.png)
+
+To change the start and stop of the x-axis to zoom in, add the following line and adjust the two values to the desired value. Rerun the cell by hitting [Shift] + [Enter] to recalculate the averages and re-plot the graph of the 1D patterns. The dimensions of the plot may also be changed by changing the two values in the section in parentheses after 'plt.rcParams["figure.figsize'] = '. Change these two values (15, 5) to adjust (width, height) of the plot.
+
+![Gain map calculation, radial averages change plot region](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20radial%20averages%2C%20change%20plot%20region.png)
+
+Change the following two numbers in the next cell to the extrapolation bounds chosen in the previous step. The number of bins used in the calculation of the radial average may be changed on the next line, this may raise an error identical to the previous step which may be safely ignored. 
+
+If the number of bins is too large and results in an empty bin with no values, the following error will appear indicating a mismatch between the number of 2θ bins and scattering count values. Reduce the number of bins if this occurs. A value around the smaller of the width or height of the detector generally works.
+
+ValueError: x and y must have same first dimension, but have shapes ...
+
+![Gain map calculation, extrapolation bounds](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20extrapolation%20bounds.png)
+
+Running the next cell plots the averaged scattering pattern at each position and the corresponding gain map calculated at each position.
+![Gain map calculation, all positions](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Gain%20map%20calculation%2C%20all%20positions.png)
+
+The next cell applies a median filter to all pixels which are not radiation damaged to remove noise resulting from amplifier conversion errors (this appears as a speckle pattern). For the window size parameter use some value less than or equal to the width of point spread function of the detector. To obtain this experimentally, cut down the beam to smaller than the size of a single pixel and shine the attenuated beam on the detector and look at the width of the resulting peak. For a an a-Si detector such as the Varex 4343CT this is generally around a 10x10 spread, for the Pilatus 2M CdTe this is a 3x3 spread. A width parameter for the median filter window should be an odd integer close to the width of the spread (9 for a 10x10, 3 for a 3x3). This spread may vary slightly based on beam energy, but a parameter of 5 should work reasonably well if this is unknown. 
+Pixels which are damaged, defined as pixels with a gain more than 4 standard deviations away from the average of the whole detector, are ignored by the median filter.
+The calculated gain map will then be plotted. 
+
+![Gain map calculation, correction](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20median%20filter.png)
+
+Running the next cell will export the gain map as a 32 bit .tif file with the desired name, followed by the current date in the format [filename]\_YYYY-MM-DD.tif
+Changing the g_form parameter will select the format of the gain map, g_form = 1 results in a gain map that should be multiplied by the measurement from the detector, g_form = 0 results in a gain map that should be divided by the measurement from the detector. 
+
+![Gain map calculation, save map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20save%20gain%20map.png)
+
 # Example of resulting gain map
 
 The function gain_map_all_pos() returns a calculated gain map for the input measurement positions, shown below along with the amorphous scattering pattern taken at each position.
@@ -124,3 +173,5 @@ The final calculated gain map for the example is shown below:
 ![Final calculated gain map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Final%20gain%20map.PNG)
 
 Bright yellow spots for this detector (pixels with large gain corrections applied) are pixels which are known to have radiation damage and may not respond correctly even after correction. If a large number of these are present and unexpected in the final gain map there may be some problem with the detector or experimental setup. 
+
+# Comparison to gain maps calculated from x-ray fluorescence flat fields
