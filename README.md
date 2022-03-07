@@ -10,6 +10,8 @@ A series of scattering patterns should be collected using an amorphous scatterer
 
 Code provided uses 3 or 5 scattering positions. More than 5 scattering positions does not appear to improve the collected gain map, though the code may be easily modified for that purpose. If the front of the beam stop is not normal to the incident beam asymmetric scattering from the beam stop may be present, creating regions of erroneous results in the final gain map if only 3 scattering positions are used (use 5 positions if you are unsure if this is an issue).
 
+Examples shown use 3 scattering positions to save space on the page, not because 3 scattering positions is in some way better.
+
 An example of the experimental setup is shown below using a stack of 10 glass microscope slides:
 
 ![Gain map experiment set up](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Glass%20microscope%20slides.png)
@@ -32,6 +34,7 @@ Examples of experiment conditions at APS beamlines:
     - Energy: 105.7 keV
     - Collection time: 150 seconds per position
     - Detector: Pilatus 2M CdTe and Perkin Elmer XRD1621
+  (Not yet collected)
   - 11-ID-B
     - Scatterer:
     - Energy:
@@ -91,3 +94,18 @@ Script will take a few seconds to run
 ![maps folder](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/directory%20with%20maps.png)
 
 Folder should now contain a new folder named 'maps' containing .tif files
+
+# Example of resulting gain map
+
+The function gain_map_all_pos() returns a calculated gain map for the input measurement positions, shown below along with the amorphous scattering pattern taken at each position.
+
+![Example output](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/3%20measurement%20positions%2C%20with%20gain%20maps.png)
+
+The corners of the calculated gain maps will likely have artifacts, like in the example shown, due to the extrapolation performed for the higher Q regions not measured in all of the scattering patterns. This is normal and does not effect the final output. If it does show up in the final output perform the measurements with less separation between the beam stop positions.
+
+The beam stop and some asymmetric scattering around the beam stop results in the dark spot and surrounding ring in the gain map at each position. There may also be a larger ring visible at a greater distance from the beam stop if the beam stop is particularly crooked. If this is visible in the final output the alignment of the beam stop should be corrected and the measurements retaken.
+
+The final calculated gain map for the example is shown below:
+![Final calculated gain map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Final%20gain%20map.PNG)
+
+Bright yellow spots for this detector (pixels with large gain corrections applied) are pixels which are known to have radiation damage and may not respond correctly even after correction. If a large number of these are present and unexpected in the final gain map there may be some problem with the detector or experimental setup. 
