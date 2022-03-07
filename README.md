@@ -106,6 +106,7 @@ The corners of the calculated gain maps will likely have artifacts, like in the 
 The beam stop and some asymmetric scattering around the beam stop results in the dark spot and surrounding ring in the gain map at each position. There may also be a larger ring visible at a greater distance from the beam stop if the beam stop is particularly crooked. If this is visible in the final output the alignment of the beam stop should be corrected and the measurements retaken.
 
 The final calculated gain map for the example is shown below:
+
 ![Final calculated gain map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Final%20gain%20map.PNG)
 
 Bright yellow spots for this detector (pixels with large gain corrections applied) are pixels which are known to have radiation damage and may not respond correctly even after correction. If a large number of these are present and unexpected in the final gain map there may be some problem with the detector or experimental setup. 
