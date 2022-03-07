@@ -36,6 +36,7 @@ Examples of experiment conditions at APS beamlines:
     - Energy: 105.7 keV
     - Collection time: 150 seconds per position
     - Detector: Pilatus 2M CdTe and Perkin Elmer XRD1621
+   
   (Not yet collected)
   - 11-ID-B
     - Scatterer:
