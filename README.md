@@ -1,9 +1,20 @@
 # X-ray-detector-gain-map
-Code to calculate x-ray detector gain maps at an arbitrary beam energy using measurements of an amorphous scatterer.
+
+# Documentation is currently a work in progress
+
+Code to calculate a gain map for an x-ray area detector at an arbitrary beam energy using measurements of an amorphous scatterer.
 May be used to correct for non-uniformity in detector response at energies where it is not possible collect a flat field.
 May also be used to quickly measure a gain map to monitor and correct for detector degradation from exposure to radiation.
 
-# Documentation is a work in progress
+With an incorrect gain map, experimental measurements will likely be erroneous.  Even when the experimental data is spatially averaged such as in a radially averaged 1D pattern from a 2D detector using the original factory gain map shows peak shifts and an apparent isosbestic point around 2θ ≈ 3.7 when the detector is simply translated, as shown below. Data shown below is collected from a Pilatus 2M CdTe detector.
+
+![Uncorrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Uncorrected%201D.png)
+
+Applying a more recently collected gain map remedies this issue
+
+![Corrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Corrected%201D.png)
+
+These gain maps will drift with time to varying degrees depending on the detector. This code provides an alternative measure to measure the gain map of an x-ray area detector at the energy which it is used. Rather than collecting multiple flat fields at energies which correspond to x-ray fluorescence lines, a gain map is calculated from a set of measurements at one energy.
 
 # Measurements required
 A series of scattering patterns should be collected using an amorphous scatterer with the detector placed fairly far away from the sample. The position of the beam stop for each measurement should not overlap with the position of the beam stop of a previous measurement. The series of measurements should look like the following:
