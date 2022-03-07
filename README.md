@@ -22,9 +22,9 @@ A series of scattering patterns should be collected using an amorphous scatterer
 
 ![3 scattering positions](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/3%20measurement%20positions.png)
 
-Code provided uses 3 or 5 scattering positions. More than 5 scattering positions does not appear to improve the collected gain map, though the code may be easily modified for that purpose. If the front of the beam stop is not normal to the incident beam asymmetric scattering from the beam stop may be present, creating regions of erroneous results in the final gain map if only 3 scattering positions are used (use 5 positions if you are unsure if this is an issue).
+Code provided uses 5 scattering positions. More than 5 scattering positions does not appear to improve the collected gain map, and 3 scattering positions appears to be sufficient in most cases. The code may be easily modified more or less than 5 scattering positions. If the front of the beam stop is not normal to the incident beam asymmetric scattering from the beam stop may be present, creating regions of erroneous results in the final gain map if only 3 scattering positions are used (use 5 positions if you are unsure if this is an issue).
 
-Examples shown use 3 scattering positions to save space on the page, not because 3 scattering positions is in some way better.
+Examples shown may use 3 scattering positions to save space on the page, not because 3 scattering positions is in some way better.
 
 An example of the experimental setup is shown below using a stack of 10 glass microscope slides:
 
