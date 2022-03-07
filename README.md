@@ -2,6 +2,50 @@
 Calculated gain maps for area detectors at APS Sector 11
 
 # Documentation is a work in progress
+
+# Measurements required
+A series of scattering patterns should be collected using an amorphous scatterer with the detector placed fairly far away from the sample. The position of the beam stop for each measurement should not overlap with the position of the beam stop of a previous measurement. The series of measurements should look like the following:
+
+![3 scattering positions](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/3%20measurement%20positions.png)
+
+Code provided uses 3 or 5 scattering positions. More than 5 scattering positions does not appear to improve the collected gain map, though the code may be easily modified for that purpose. If the front of the beam stop is not normal to the incident beam asymmetric scattering from the beam stop may be present, creating regions of erroneous results in the final gain map if only 3 scattering positions are used (use 5 positions if you are unsure if this is an issue).
+
+An example of the experimental setup is shown below using a stack of 10 glass microscope slides:
+
+![Gain map experiment set up](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Glass%20microscope%20slides.png)
+
+
+A stack of glass microscope slides works well as the amorphous scatterer, though other scatterers may also be used. Some nanoparticle materials tested have some asymmetric small angle scattering which can cause problems with the calculation, so ensure this is not the case for whatever material is used. The asymmetric scattering wil appear as very obvious roughly circular artifacts around beamstop positions in the final gain map if present. 
+
+Ensure that the detector counts over the pattern stay within the linear regime of the detector for whatever collection time is used, a good rule of thumb is to stay between 10-90% of the max counting depth of the detector. If a stack of microscope slides is used as the scatterer the number of slides may be varied to change the scattering intensity. 
+
+Sample distance to detector does not appear to be critical beyond altering the detector counts due to air scattering attenuation.
+
+Examples of experiment conditions at APS beamlines:
+  - 17-BM-B
+    - Scatterer: 4 Microscope slides
+    - Energy: 27 and 51 keV
+    - Collection time: 30 minutes per position
+    - Detector: Varex 4343 CT
+  - 11-ID-C
+    - Scatterer: 10 microscope slides
+    - Energy: 105.7 keV
+    - Collection time: 150 seconds per position
+    - Detector: Pilatus 2M CdTe and Perkin Elmer XRD1621
+  - 11-ID-B
+    - Scatterer:
+    - Energy:
+    - Collection Time:
+    - Detector: Perkin Elmer XRD1621
+  - 6-ID
+    - Scatterer:
+    - Energy:
+    - Collection Time:
+    - Detector: Pilatus 2M CdTe
+   
+
+At each position a calibrant should also be measured, CeO2 is used in the examples. A black mark will appear in the glass slides at the beam position, this does not appear to effect the measurement.
+
 # Obtaining GSAS-II calibration maps
 ![GSAS-II Calibration](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gsas%20II%20calibration.PNG)
 
