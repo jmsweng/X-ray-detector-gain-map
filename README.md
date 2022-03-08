@@ -166,7 +166,7 @@ Changing the g_form parameter will select the format of the gain map, g_form = 1
 
 ![Gain map calculation, save map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20save%20gain%20map.png)
 
-# Example of resulting gain map
+# Example of a calculated gain map
 
 The function gain_map_all_pos() returns a calculated gain map for the input measurement positions, shown below along with the amorphous scattering pattern taken at each position.
 
@@ -182,4 +182,7 @@ The final calculated gain map for the example is shown below:
 
 Bright yellow spots for this detector (pixels with large gain corrections applied) are pixels which are known to have radiation damage and may not respond correctly even after correction. If a large number of these are present and unexpected in the final gain map there may be some problem with the detector or experimental setup. 
 
+# General description of calculation method
+
 # Comparison to gain maps calculated from x-ray fluorescence flat fields
+Work in progress
