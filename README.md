@@ -12,17 +12,17 @@ With an incorrect gain map, experimental measurements will likely be erroneous. 
 
 ![Uncorrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Uncorrected%201D.png)
 
-Applying a more recently collected gain map remedies this issue
+Applying a recently collected gain map remedies this issue
 
 ![Corrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Corrected%201D.png)
 
-These gain maps will drift with time to varying degrees depending on the detector. This code provides an alternative measure to measure the gain map of an x-ray area detector at the energy which it is used. Rather than collecting multiple flat fields at energies which correspond to x-ray fluorescence lines, a gain map is calculated from a set of measurements at one energy. For measurements particularly sensitive to peak intensities, such as liquid pair distribution function analysis, it is critical to have a proper gain map.
-
-Due to the slight drift in the detector gain over time, data corrected with gain maps collected roughly one month apart will result in subtly different scattering patterns, even when radially integrated to 1D as shown below. This is most noticable around 2θ ≈ [0.5, 3, 5]. It is not clear what factors influence this drift and it is likely detector specific.
+Due to the slight drift in the detector gain over time the detector's gain map will change with time and should be periodically updated. Data corrected with gain maps collected roughly one month apart will result in subtly different scattering patterns, even when radially integrated to 1D as shown below. This is most noticable around 2θ ≈ [0.5, 3, 5]. It is not clear what factors influence this drift and it is likely detector specific. When correcting data with a gain map, the gain map used should thus be one which was measured as recently as possible to minimize errors induced in detector drift.
 
 ![gain map, 1 month apart](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Gain%20correction%201%20month%20apart.png)
 
-Examples shown are with data taken on a Pilatus 2M CdTe, this is done for consistency and should **not** be interpreted as an indication that the problems, solutions, or code presented are unique to this detector. 
+This code provides an alternative measure to measure the gain map of an x-ray area detector at the energy which it is used. Rather than collecting multiple flat fields at energies which correspond to x-ray fluorescence lines, a gain map is calculated from a set of measurements at one energy. For measurements particularly sensitive to peak intensities, such as liquid pair distribution function analysis, it is critical to have a proper gain map.
+
+Examples shown are with data taken on a Pilatus 2M CdTe, this is done for presentation consistency and should **not** be interpreted as an indication that the problems, solutions, or code presented are unique to this detector. 
 
 # Measurements required
 A series of scattering patterns should be collected using an amorphous scatterer with the detector placed fairly far away from the sample. The position of the beam stop for each measurement should not overlap with the position of the beam stop of a previous measurement. The series of measurements should look like the following:
