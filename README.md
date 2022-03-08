@@ -1,6 +1,7 @@
 # X-ray-detector-gain-map
 Code is provided in the form of Jupyter Notebooks, installation instructions for Jupyter are found [here](https://jupyter.org/install), though it is already included in the default install configuration of [Anaconda Python](https://www.anaconda.com/products/individual) which is the recommended Python install for this code.
 Code is written for Python 3 (Python 3.9.7 was used to run the code to generate example images).
+
 # Documentation is currently a work in progress
 
 Code to calculate a gain map for an x-ray area detector at an arbitrary beam energy using measurements of an amorphous scatterer.
@@ -16,6 +17,8 @@ Applying a more recently collected gain map remedies this issue
 ![Corrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Corrected%201D.png)
 
 These gain maps will drift with time to varying degrees depending on the detector. This code provides an alternative measure to measure the gain map of an x-ray area detector at the energy which it is used. Rather than collecting multiple flat fields at energies which correspond to x-ray fluorescence lines, a gain map is calculated from a set of measurements at one energy.
+
+Examples shown are with data taken on a Pilatus 2M CdTe, this is done for consistency and should not be interpreted as an indication that the problems, solutions, or code presented are unique to this detector. 
 
 # Measurements required
 A series of scattering patterns should be collected using an amorphous scatterer with the detector placed fairly far away from the sample. The position of the beam stop for each measurement should not overlap with the position of the beam stop of a previous measurement. The series of measurements should look like the following:
