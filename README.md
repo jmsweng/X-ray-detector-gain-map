@@ -24,6 +24,15 @@ This code provides an alternative measure to measure the gain map of an x-ray ar
 
 Examples shown are with data taken on a Pilatus 2M CdTe, this is done for presentation consistency and should **not** be interpreted as an indication that the problems, solutions, or code presented are unique to this detector. 
 
+#### Table of Contents
+- [Measurements required](https://github.com/jmsweng/X-ray-detector-gain-map/edit/main/README.md#measurements-required)
+  - [Examples of experiment conditions](https://github.com/jmsweng/X-ray-detector-gain-map/edit/main/README.md#examples-of-experiment-conditions-at-aps-beamlines)
+- [Obtaining GSAS-II calibration maps](https://github.com/jmsweng/X-ray-detector-gain-map/edit/main/README.md#obtaining-gsas-ii-calibration-maps)
+- [Usage of gain map calculation script](https://github.com/jmsweng/X-ray-detector-gain-map#usage-of-gain-map-calculation-script)
+- [Example of a calculated gain map](https://github.com/jmsweng/X-ray-detector-gain-map#example-of-a-calculated-gain-map)
+- [General description of calculation method](https://github.com/jmsweng/X-ray-detector-gain-map#general-description-of-calculation-method)
+- [Comparison to gain maps calculated from XRF flat fields](https://github.com/jmsweng/X-ray-detector-gain-map#comparison-to-gain-maps-calculated-from-x-ray-fluorescence-flat-fields)
+
 # Measurements required
 A series of scattering patterns should be collected using an amorphous scatterer with the detector placed fairly far away from the sample. The position of the beam stop for each measurement should not overlap with the position of the beam stop of a previous measurement. The series of measurements should look like the following:
 
@@ -44,7 +53,7 @@ Ensure that the detector counts over the pattern stay within the linear regime o
 
 Sample distance to detector does not appear to be critical beyond altering the detector counts due to air scattering attenuation.
 
-Examples of experiment conditions at APS beamlines:
+## Examples of experiment conditions at APS beamlines:
   - 17-BM-B
     - Scatterer: 4 Microscope slides
     - Energy: 27 and 51 keV
