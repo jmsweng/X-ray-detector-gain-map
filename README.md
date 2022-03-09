@@ -187,6 +187,35 @@ The final calculated gain map for the example is shown below:
 Bright yellow spots for this detector (pixels with large gain corrections applied) are pixels which are known to have radiation damage and may not respond correctly even after correction. If a large number of these are present and unexpected in the final gain map there may be some problem with the detector or experimental setup. 
 
 # General description of calculation method
+Detector gain is assumed to be a linear correction applied to the measurement given by the following equation.
+
+![Equation 1](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/equation%201.jpg)
+
+Where: 
+
+![I_m](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/i_m.png) is the measured signal obtained from the detector, 
+
+![Gain](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/g.png) is the gain map for the detector, 
+
+![signal](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/signal.png) is the signal being measured, and 
+
+![epsilon](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/epsilon.png) is some linear offset or error term (this can be interpreted as a dark frame which is subtracted).
+
+From an obtained map of pixel (x, y) positions to 2θ values the radial median is calculated and then mapped back to these pixels to provide an idealized measured signal, ![signal est](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/s%20est.png). An estimation of the gain map, ![g_est]( https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/equation 2.jpg) may be then calculated using the following equation:
+
+![equation 2](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/equation%202.jpg)
+
+This processed is outlined by the following flow chart:
+
+![flow chart](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/calculate%20estimated%20signal.png)
+
+In order to provide a better estimate of the signal, multiple detector positions are used, and the resulting radial medians are averaged together.
+
+![average multiple signals](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Average%20multiple%20signals.png)
+
+Using multiple estimated ![signal est](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Equations/s%20est.png) corresponding to each detector position, a position specific gain map may be calculated at each position which does not contain gain values where the detector is obscured by the beam stop. These position specific gain maps additionally contain any asymmetric scattering off of the beam stop that should not be included in the final gain map. A non-position specific gain map is then calculated by taking the median of all the position specific gain maps. A median filter is then applied to this result with a window width smaller than the detector's measured point spread function in order to remove noise resulting from detector shot noise and amplifier conversion errors.
+
+![Median of maps](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Combine%20positional%20gain%20maps.png)
 
 # Comparison to gain maps calculated from x-ray fluorescence flat fields
 Work in progress
