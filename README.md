@@ -16,7 +16,7 @@ Applying a recently collected gain map remedies this issue
 
 ![Corrected 1D scattering pattern](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Corrected%201D.png)
 
-Due to the slight drift in the detector gain over time the detector's gain map will change with time and should be periodically updated. Data corrected with gain maps collected roughly one month apart will result in subtly different scattering patterns, even when radially integrated to 1D as shown below. This is most noticable around 2θ ≈ [0.5, 3, 5]. It is not clear what factors influence this drift and it is likely detector specific. When correcting data with a gain map, the gain map used should thus be one which was measured as recently as possible to minimize errors induced in detector drift.
+Due to the slight drift in the detector gain over time the detector's gain map will change with time and should be periodically updated. Data corrected with gain maps collected roughly one month apart will result in subtly different scattering patterns, even when radially integrated to 1D as shown below. This is most noticable in the shown example around 2θ ≈ [0.5, 3, 5]. It is not clear what factors influence this drift and it is likely detector specific. When correcting data with a gain map, the gain map used should thus be one which was measured as recently as possible to minimize errors induced in detector drift.
 
 ![gain map, 1 month apart](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Gain%20correction%201%20month%20apart.png)
 
