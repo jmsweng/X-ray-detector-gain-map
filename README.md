@@ -72,6 +72,10 @@ Examples of experiment conditions at APS beamlines:
 At each position a calibrant should also be measured, CeO2 is used in the examples. A black mark will appear in the glass slides at the beam position, this does not appear to effect the measurement.
 
 # Obtaining GSAS-II calibration maps
+[GSAS-II](https://subversion.xray.aps.anl.gov/trac/pyGSAS) is used to generate a map of detector pixels to 2-θ positions and a polarization correction. Other software may be used instead if desired, such as pyFAI, though some work will likely need to be done to ensure the output matches the expected input of the gain correction software.
+
+Installation instructions for GSAS-II may be found on the [linked](https://subversion.xray.aps.anl.gov/trac/pyGSAS) page. 
+
 ![GSAS-II Calibration](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gsas%20II%20calibration.PNG)
 
 Import calibration measurements into GSAS-II and run calibration on all measurements. Shown here are CeO2 calibration patterns taken at three positions for a Pilatus 2M CdTe detector. Make sure calibrations are reasonable. All three measurements should have the same calibration distance. 
