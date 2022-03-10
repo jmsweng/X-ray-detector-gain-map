@@ -18,7 +18,7 @@ Applying a recently collected gain map remedies this issue
 
 Due to the slight drift in the detector gain over time the detector's gain map will change with time and should be periodically updated. Data corrected with gain maps collected roughly one month apart will result in subtly different scattering patterns, even when radially integrated to 1D as shown below. This is most noticable in the shown example around 2θ ≈ [0.5, 3, 5]. It is not clear what factors influence this drift and it is likely detector specific. When correcting data with a gain map, the gain map used should thus be one which was measured as recently as possible to minimize errors induced in detector drift.
 
-![gain map, 1 month apart](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/Gain%20correction%201%20month%20apart.png)
+![gain map, 1 month apart](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20correction%2C%201%20month%20apart.PNG)
 
 This code provides an alternative measure to measure the gain map of an x-ray area detector at the energy which it is used. Rather than collecting multiple flat fields at energies which correspond to x-ray fluorescence lines, a gain map is calculated from a set of measurements at one energy. For measurements particularly sensitive to peak intensities, such as liquid pair distribution function analysis, it is critical to have a proper gain map.
 
