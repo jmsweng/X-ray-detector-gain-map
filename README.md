@@ -67,9 +67,9 @@ Sample distance to detector does not appear to be critical beyond altering the d
    
   (Not yet collected)
   - 11-ID-B
-    - Scatterer:
-    - Energy:
-    - Collection Time:
+    - Scatterer: 8 microscope slides
+    - Energy: 58.6 keV
+    - Collection Time: 3 minutes per position
     - Detector: Perkin Elmer XRD1621
   - 6-ID
     - Scatterer:
