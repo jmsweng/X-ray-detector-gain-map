@@ -6,7 +6,9 @@ Measurement conditions:
   - Sample to detector distance: 1000 mm
   - Standard: CeO2
 
-2D images of collected diffraction patterns at five positions with detector translation
+Images collected with 0.5 s exposures with 360 sub frames to get a total of 3 minutes
+
+2D images of collected diffraction patterns at five positions with detector translation (Example from measurements taken on 2022-03-16)
 
 ![five detector positions](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/11-ID-B/Images/11-id-b%20multiple%20positions.png)
 
