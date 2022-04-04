@@ -175,7 +175,7 @@ The calculated gain map will then be plotted.
 ![Gain map calculation, correction](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20median%20filter.png)
 
 Running the next cell will export the gain map as a 32 bit .tif file with the desired name, followed by the current date in the format [filename]\_YYYY-MM-DD.tif
-Changing the g_form parameter will select the format of the gain map, g_form = 1 results in a gain map that should be multiplied by the measurement from the detector, g_form = 0 results in a gain map that should be divided by the measurement from the detector. 
+Changing the g_form parameter will select the format of the gain map, g_form = 1 results in a gain map that should be divided by the measurement from the detector, g_form = 0 results in a gain map that should be multiplied by the measurement from the detector. 
 
 ![Gain map calculation, save map](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/gain%20map%20calculation%2C%20save%20gain%20map.png)
 
