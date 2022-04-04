@@ -7,6 +7,7 @@ Ensure that the exposure time is actually being changed, rather than increasing 
 
 ## An example series of measurements:
   -Scatterer: CeO2
+  
   -Exposure times: 0.1, 0.2, 0.3, 0.5 s
   
 # Script usage:
