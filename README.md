@@ -233,7 +233,7 @@ Using multiple estimated ![signal est](https://github.com/jmsweng/X-ray-detector
 # Comparison to gain maps calculated from x-ray fluorescence flat fields
 Work in progress
 
-The Pilatus 2M CdTe detector automatically calculates a flat field when the x-ray beam and threshold energy settings are input using the *SetEnergy [energy]* *[threshold]* command in the camserver. These are calculated based on a series of x-ray fluorescence flat fields that are stored on the detector computer. There are two sets of calibration flat fields with the threshold above and below 50% the incident beam energy setting, resulting in a different calculation depending on the threshold set. If the incident energy is higher than the energy of the flat fields collected, the calculation is extrapolated to generate the gain map. 
+The Pilatus 2M CdTe detector automatically calculates a flat field when the x-ray beam and threshold energy settings are input using the *SetEnergy [energy]* *[threshold]* command in the camserver. These are calculated based on a series of x-ray fluorescence flat fields that are stored on the detector computer. There are a set of calibration flat fields used to calculate the flat field at the selected energy. If the incident energy is higher than the energy of the flat fields collected, the calculation is extrapolated to generate the gain map. It should be noted that thresholds above 40 keV are outside of the detector specs, so unexpected behavior may occur when set above this, which is shown below.
 
 Gain maps calculated from the technique described using an amorphous scatterer at a single energy will from here on be referred to as an *experimentally collected gain map* while gain maps calculated from a series of x-ray fluorescence flat fields at different energies will be referred as *calculated gain maps*.
 
@@ -242,7 +242,7 @@ For measurements taken at 11-ID-C with a beam energy of 105.7 keV the calculated
 For energy thresholds below 50% the set beam energy, the experimentally collected gain map using the technique described is identical to the calculated gain map from the detector, other than regions where the detector has sustained damage (most noticably the bottom right corner).
 ![below 50% threshold](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/50%25%20threshold.png)
 
-For energy thresholds above 50% the beam energy, the experimentally collected gain map differs dramatically from the calculated gain map. Relative responses of detector sub modules differ dramatically from the calculated, with entire detector sub modules differing by over 20%. 
+For energy thresholds above 50% the beam energy, the experimentally collected gain map differs dramatically from the calculated gain map. Relative responses of detector sub modules differ dramatically from the calculated, with entire detector sub modules differing by over 20%. This behavior is some consequence of operating the detector with a set threshold outside of its specifications (8-40 keV). 
 ![above 50% threshold](https://github.com/jmsweng/X-ray-detector-gain-map/blob/main/Images/above%2050%25%20threshold.png)
 
 This deviation appears to increase as the energy threshold increases, though it is not clear what the origin of this discrepancy is.
